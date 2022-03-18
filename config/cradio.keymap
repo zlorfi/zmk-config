@@ -30,28 +30,18 @@
       bindings = <&kp TAB>;
     };
 
-    combo_ralt {
+    // Toggle layer 3 for bootloader
+    combo_l_layer_3 {
       timeout-ms = <50>;
-      key-positions = <17 16>;
-      bindings = <&kp RALT>;
+      key-positions = <30 31>;
+      bindings = <&to 3>;
     };
 
-    combo_lalt {
+    // Toggle layer 3 for bootloader
+    combo_r_layer_3 {
       timeout-ms = <50>;
-      key-positions = <11 12>;
-      bindings = <&kp LALT>;
-    };
-
-    combo_lgui {
-      timeout-ms = <50>;
-      key-positions = <12 13>;
-      bindings = <&kp LGUI>;
-    };
-
-    combo_rgui {
-      timeout-ms = <50>;
-      key-positions = <17 18>;
-      bindings = <&kp RGUI>;
+      key-positions = <32 33>;
+      bindings = <&to 3>;
     };
   };
 
@@ -61,16 +51,16 @@
     default_layer {
       // ___________________________________________________           ___________________________________________________
       // |    Q    |    W    |    F    |    P    |    B    |           |    J    |    L    |    U    |    Y    |    ;    |
-      // |    A    |    R    |    S    |    T    |    G    |           |    M    |    N    |    E    |    I    |    O    |
+      // |    A    |    R    |    S    | LAlt(T) |    G    |           |    M    | RCmd(N) |    E    |    I    |    O    |
       // |    Z    |    X    |    C    |    D    |    V    |           |    K    |    H    |    ,    |    .    |    /    |
       // ------------------------------| LAYER1  |  ENTER  |           |   RGUI  |  LAYER2 |------------------------------
       bindings = <
         &kp Q      &kp W      &kp F       &kp P       &kp B             &kp J      &kp L      &kp U      &kp Y      &kp SEMICOLON
-        &kp A      &kp R      &kp S       &kp T       &kp G             &kp M      &kp N      &kp E      &kp I      &kp O
+        &kp A      &kp R      &kp S       &mt LALT T  &kp G             &kp M      &mt RCMD N &kp E      &kp I      &kp O
         &kp Z      &kp X      &kp C       &kp D       &kp V             &kp K      &kp H      &kp COMMA  &kp DOT    &kp SLASH
                                           &lt 1 BSPC  &mt LSHFT ENTER   &mt RSHFT RGUI  &lt 2 SPACE
       >;
-		};
+    };
 
     left_layer {
       // ___________________________________________________           ___________________________________________________
@@ -84,9 +74,9 @@
         &none      &kp LG(X)  &kp LBRC    &kp RBRC    &kp LG(V)         &none      &kp LBKT   &kp RBKT   &none      &kp BSLH
                                           &trans      &trans            &none      &none
       >;
-		};
+    };
 
-		right_layer {
+    right_layer {
       // ___________________________________________________           ___________________________________________________
       // |         |    1    |    2    |    3    |         |           |         |         |   UP    |         |  VOL +  |
       // |    0    |    4    |    5    |    6    |         |           |         |  LEFT   |  DOWN   |  RIGHT  |  VOL -  |
@@ -98,16 +88,20 @@
         &none      &kp KP_N7  &kp KP_N8   &kp KP_N9   &none             &none      &none      &none      &trans     &kp C_MUTE
                                           &none       &kp BSPC          &none      &trans
       >;
-		};
+    };
 
-		tri_layer {
+    tri_layer {
+      // ___________________________________________________           ___________________________________________________
+      // |         |         |         |         |  RESET  |           |  RESET  |         |         |         |         |
+      // |         |         |         |         |         |           |         |         |         |         |         |
+      // |         |         |         |         |         |           |         |         |         |         |         |
+      // ------------------------------|         |         |           |         |         |------------------------------
       bindings = <
-        &kp NUM_1  &kp NUM_2  &kp NUM_3   &kp NUM_4   &kp NUM_5 			  &trans     &trans     &trans     &trans     &trans
-        &kp F1     &kp F2     &kp F3      &kp F4      &kp F5  					&trans     &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans
-        &bt BT_CLR &bt BT_NXT &bt BT_PRV  &kp F6      &kp F7   				  &trans     &kp PG_DN  &kp K_VOL_DN &trans   &trans
-                                          &trans      &trans  					&trans     &trans
+        &none      &none      &none       &none       &bootloader       &bootloader &none     &none      &none      &none
+        &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
+        &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
+                                          &none       &none             &none      &none
       >;
-		};
-
-	};
+    };
+  };
 };
