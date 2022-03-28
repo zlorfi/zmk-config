@@ -16,6 +16,27 @@
 };
 
 / {
+  behaviors {
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      quick_tap_ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    td: tapdance {
+      compatible = "zmk,behavior-hold-tap";
+      label = "TAPDANCE";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick_tap_ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+  };
+
   combos {
     compatible = "zmk,combos";
     combo_esc {
@@ -53,12 +74,12 @@
       // |    Q    |    W    |    F    |    P    |    B    |           |    J    |    L    |    U    |    Y    |    ;    |
       // |    A    |    R    |    S    | LAlt(T) |    G    |           |    M    | RCmd(N) |    E    |    I    |    O    |
       // |    Z    |    X    |    C    |    D    |    V    |           |    K    |    H    |    ,    |    .    |    /    |
-      // ------------------------------| LAYER 1 |  ENTER  |           |  RSHFT  | LAYER 2 |------------------------------
+      // ------------------------------| LAYER 1 |  ENTER  |           | St RShft| LAYER 2 |------------------------------
       bindings = <
         &kp Q      &kp W      &kp F       &kp P       &kp B             &kp J      &kp L      &kp U      &kp Y      &kp SEMICOLON
-        &kp A      &kp R      &kp S       &mt LALT T  &kp G             &kp M      &mt RCMD N &kp E      &kp I      &kp O
+        &kp A      &kp R      &kp S       &hm LALT T  &kp G             &kp M      &hm RCMD N &kp E      &kp I      &kp O
         &kp Z      &kp X      &kp C       &kp D       &kp V             &kp K      &kp H      &kp COMMA  &kp DOT    &kp SLASH
-                                          &lt 1 BSPC  &mt LSHFT ENTER   &kp RSHFT  &lt 2 SPACE
+                                          &lt 1 BSPC  &mt LSHFT ENTER   &sk RSHFT  &lt 2 SPACE
       >;
     };
 
@@ -92,13 +113,13 @@
 
     tri_layer {
       // ___________________________________________________           ___________________________________________________
-      // | EP_TOG  |         |         |         |  RESET  |           |  RESET  |         |         |         | EP_TOG  |
-      // |         |         |         |         |         |           |         |         |         |         |         |
+      // | EP_OFF  |         |         |         |  RESET  |           |         |         |         |         |         |
+      // | EP_ON   |         |         |         |         |           |         |         |         |         |         |
       // |         |         |         |         |         |           |         |         |         |         |         |
       // ------------------------------|         |         |           |         |         |------------------------------
       bindings = <
-        &ext_power EP_TOG &none &none     &none       &bootloader       &bootloader &none     &none      &none      &ext_power EP_TOG
-        &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
+        &ext_power EP_OFF &none &none     &none       &bootloader       &none      &none      &none      &none      &none
+        &ext_power EP_ON  &none &none     &none       &none             &none      &none      &none      &none      &none
         &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
                                           &none       &none             &none      &none
       >;
