@@ -8,7 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
-
+#include <dt-bindings/zmk/outputs.h>
 
 &mt {
   // flavor = "tap-preferred";
@@ -113,13 +113,13 @@
 
     tri_layer {
       // ___________________________________________________           ___________________________________________________
-      // | EP_OFF  |         |         |         |  RESET  |           |         |         |         |         |         |
-      // | EP_ON   |         |         |         |         |           |         |         |         |         |         |
+      // | EP_OFF  | OUT_USB |         |         |  RESET  |           |  RESET  |         |         |         |         |
+      // | EP_ON   | OUT_BLE |         |         |         |           |         |         |         |         |         |
       // |         |         |         |         |         |           |         |         |         |         |         |
       // ------------------------------|         |         |           |         |         |------------------------------
       bindings = <
-        &ext_power EP_OFF &none &none     &none       &bootloader       &none      &none      &none      &none      &none
-        &ext_power EP_ON  &none &none     &none       &none             &none      &none      &none      &none      &none
+        &ext_power EP_OFF &out OUT_USB &none &none    &bootloader       &bootloader &none     &none      &none      &none
+        &ext_power EP_ON  &out OUT_BLE &none &none    &none             &none      &none      &none      &none      &none
         &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
                                           &none       &none             &none      &none
       >;
