@@ -15,6 +15,10 @@
   // tapping_term_ms = <200>;
 };
 
+&sl {
+  release-after-ms = <2000>;
+};
+
 / {
   behaviors {
     hm: homerow_mods {
@@ -115,12 +119,12 @@
       // ___________________________________________________           ___________________________________________________
       // | EP_OFF  | OUT_USB |         |         |  RESET  |           |  RESET  |         |         |         |         |
       // | EP_ON   | OUT_BLE |         |         |         |           |         |         |         |         |         |
-      // |         |         |         |         |         |           |         |         |         |         |         |
+      // |   €     |         |         |         |         |           |         |         |         |         |         |
       // ------------------------------|         |         |           |         |         |------------------------------
       bindings = <
         &ext_power EP_OFF &out OUT_USB &none &none    &bootloader       &bootloader &none     &none      &none      &none
         &ext_power EP_ON  &out OUT_BLE &none &none    &none             &none      &none      &none      &none      &none
-        &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
+        &kp LA(N5) &none      &none       &none       &none             &none      &none      &none      &none      &none
                                           &none       &none             &none      &none
       >;
     };
