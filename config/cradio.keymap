@@ -91,12 +91,12 @@
       // ___________________________________________________           ___________________________________________________
       // |    !    |    @    |    #    |    $    |    %    |           |    ^    |    &    |    '    |    `    |         |
       // |    ~    |    +    |    (    |    )    |  COPY   |           |    |    |    -    |    =    |    _    |    *    |
-      // |         | EXTRACT |    {    |    }    |  PASTE  |           |         |    [    |    ]    |         |    \    |
+      // |    €    | EXTRACT |    {    |    }    |  PASTE  |           |         |    [    |    ]    |         |    \    |
       // ------------------------------|  TRANS  |  TRANS  |           |         |         |------------------------------
       bindings = <
         &kp EXCL   &kp AT     &kp HASH    &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPS   &kp APOS   &kp GRAVE  &none
         &kp TILDE  &kp PLUS   &kp LPAR    &kp RPAR    &kp LG(C)         &kp PIPE   &kp MINUS  &kp EQUAL  &kp UNDER  &kp STAR
-        &none      &kp LG(X)  &kp LBRC    &kp RBRC    &kp LG(V)         &none      &kp LBKT   &kp RBKT   &none      &kp BSLH
+        &kp LA(N5) &kp LG(X)  &kp LBRC    &kp RBRC    &kp LG(V)         &none      &kp LBKT   &kp RBKT   &none      &kp BSLH
                                           &trans      &trans            &none      &none
       >;
     };
@@ -119,12 +119,12 @@
       // ___________________________________________________           ___________________________________________________
       // | EP_OFF  | OUT_USB |         |         |  RESET  |           |  RESET  |         |         |         |         |
       // | EP_ON   | OUT_BLE |         |         |         |           |         |         |         |         |         |
-      // |   €     |         |         |         |         |           |         |         |         |         |         |
+      // |         |         |         |         |         |           |         |         |         |         |         |
       // ------------------------------|         |         |           |         |         |------------------------------
       bindings = <
         &ext_power EP_OFF &out OUT_USB &none &none    &bootloader       &bootloader &none     &none      &none      &none
         &ext_power EP_ON  &out OUT_BLE &none &none    &none             &none      &none      &none      &none      &none
-        &kp LA(N5) &none      &none       &none       &none             &none      &none      &none      &none      &none
+        &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
                                           &none       &none             &none      &none
       >;
     };
