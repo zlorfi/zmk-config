@@ -117,14 +117,14 @@
 
     tri_layer {
       // ___________________________________________________           ___________________________________________________
-      // | EP_OFF  | OUT_USB |         |         |  RESET  |           |  RESET  |         |         |         |         |
+      // | EP_OFF  | OUT_USB |         |         |  RESET  |           |  RESET  |         |         |         | BT CLEAR|
       // | EP_ON   | OUT_BLE |         |         |         |           |         |         |         |         |         |
-      // |         |         |         |         |         |           |         |         |         |         |         |
+      // |         |         |         |         |         |           |         |         |         |         | BT NEXT |
       // ------------------------------|         |         |           |         |         |------------------------------
       bindings = <
-        &ext_power EP_OFF &out OUT_USB &none &none    &bootloader       &bootloader &none     &none      &none      &none
+        &ext_power EP_OFF &out OUT_USB &none &none    &bootloader       &bootloader &none     &none      &none      &bt BT_CLR
         &ext_power EP_ON  &out OUT_BLE &none &none    &none             &none      &none      &none      &none      &none
-        &none      &none      &none       &none       &none             &none      &none      &none      &none      &none
+        &none      &none      &none       &none       &none             &none      &none      &none      &none      &bt BT_NXT
                                           &none       &none             &none      &none
       >;
     };
